@@ -900,14 +900,20 @@
         </metadata-records>
       </connection>
       <aliases enabled='yes' />
-      <column aggregation='Sum' caption='customer prchs quarter' datatype='integer' name='[Calculation_2375719221661310977]' role='dimension' type='ordinal'>
-        <calculation class='tableau' formula='{ FIXED [Calculation_2375719221659734016]:COUNTD([customer_id])}' />
-      </column>
-      <column caption='retention rate' datatype='real' default-format='p0.0%' name='[Calculation_2375719221661868034]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='COUNTD([customer_id])/SUM([Calculation_2375719221661310977])' />
-      </column>
       <column caption='date trunc order' datatype='datetime' name='[Calculation_2375719221667225603]' role='dimension' type='quantitative'>
         <calculation class='tableau' formula='DATETIME(DATETRUNC(&apos;quarter&apos;,[order_purchase_date]))' />
+      </column>
+      <column caption='order purchase quarter' datatype='datetime' name='[Calculation_2375719221669388292]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='{ FIXED [customer_unique_id]:MIN(DATETRUNC(&apos;quarter&apos;,[order_purchase_date]))}' />
+      </column>
+      <column caption='customer per first quarter' datatype='integer' name='[Calculation_2375719221670400006]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{ FIXED [Calculation_2375719221669388292]:COUNTD([customer_unique_id])}' />
+      </column>
+      <column caption='retention rate' datatype='real' default-format='p0.0%' name='[Calculation_2375719221670768647]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNTD([customer_unique_id])/SUM([Calculation_2375719221670400006])' />
+      </column>
+      <column caption='elapsed quarter' datatype='real' name='[Calculation_2375719221671706632]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='DATEDIFF(&apos;quarter&apos;,[Calculation_2375719221670400006],DATETRUNC(&apos;quarter&apos;, [order_purchase_date]))' />
       </column>
       <column caption='sum_transaction' datatype='real' name='[Calculation_6343601599203360768]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='[price]+[freight_value]' />
@@ -14817,7 +14823,35 @@
     <worksheet name='Sheet 21'>
       <table>
         <view>
-          <datasources />
+          <datasources>
+            <datasource caption='main_df' name='federated.1yz23ux1ox9zif121k52t0f0nrfi' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1yz23ux1ox9zif121k52t0f0nrfi'>
+            <column caption='order purchase quarter' datatype='datetime' name='[Calculation_2375719221669388292]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='{ FIXED [customer_unique_id]:MIN(DATETRUNC(&apos;quarter&apos;,[order_purchase_date]))}' />
+            </column>
+            <column caption='customer per first quarter' datatype='integer' name='[Calculation_2375719221670400006]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{ FIXED [Calculation_2375719221669388292]:COUNTD([customer_unique_id])}' />
+            </column>
+            <column caption='retention rate' datatype='real' default-format='p0.0%' name='[Calculation_2375719221670768647]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='COUNTD([customer_unique_id])/SUM([Calculation_2375719221670400006])' />
+            </column>
+            <column caption='Customer Unique Id' datatype='string' name='[customer_unique_id]' role='dimension' type='nominal' />
+            <column caption='Order Purchase Date' datatype='datetime' name='[order_purchase_date]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_2375719221670400006]' derivation='Sum' name='[sum:Calculation_2375719221670400006:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_2375719221669388292]' derivation='Quarter-Trunc' name='[tqr:Calculation_2375719221669388292:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[order_purchase_date]' derivation='Quarter-Trunc' name='[tqr:order_purchase_date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_2375719221670768647]' derivation='User' name='[usr:Calculation_2375719221670768647:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1yz23ux1ox9zif121k52t0f0nrfi].[tqr:Calculation_2375719221669388292:ok]'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[tqr:Calculation_2375719221669388292:ok]' />
+              <groupfilter function='member' level='[tqr:Calculation_2375719221669388292:ok]' member='#2016-07-01 00:00:00#' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1yz23ux1ox9zif121k52t0f0nrfi].[tqr:Calculation_2375719221669388292:ok]</column>
+          </slices>
           <aggregation value='true' />
         </view>
         <style />
@@ -14827,10 +14861,19 @@
               <breakdown value='auto' />
             </view>
             <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1yz23ux1ox9zif121k52t0f0nrfi].[usr:Calculation_2375719221670768647:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
           </pane>
         </panes>
-        <rows />
-        <cols />
+        <rows>([federated.1yz23ux1ox9zif121k52t0f0nrfi].[tqr:Calculation_2375719221669388292:ok] / [federated.1yz23ux1ox9zif121k52t0f0nrfi].[sum:Calculation_2375719221670400006:ok])</rows>
+        <cols>[federated.1yz23ux1ox9zif121k52t0f0nrfi].[tqr:order_purchase_date:ok]</cols>
       </table>
       <simple-id uuid='{BA7FB781-9D68-4CB3-9FD4-EE33E752C54B}' />
     </worksheet>
@@ -16301,6 +16344,11 @@
           </strip>
           <strip size='31'>
             <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1yz23ux1ox9zif121k52t0f0nrfi].[usr:Calculation_2375719221670768647:qk]' type='color' />
           </strip>
         </edge>
       </cards>
