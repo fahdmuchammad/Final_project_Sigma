@@ -903,6 +903,9 @@
         </metadata-records>
       </connection>
       <aliases enabled='yes' />
+      <column caption='Customer Button' datatype='string' name='[Calculation_220324588282765312]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='&quot;Customer&quot;' />
+      </column>
       <column caption='date trunc order' datatype='datetime' name='[Calculation_2375719221667225603]' role='dimension' type='quantitative'>
         <calculation class='tableau' formula='DATETIME(DATETRUNC(&apos;quarter&apos;,[order_purchase_date]))' />
       </column>
@@ -7277,6 +7280,11 @@
           </strip>
           <strip size='31'>
             <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1yz23ux1ox9zif121k52t0f0nrfi].[cnt:order_id:qk]' type='color' />
           </strip>
         </edge>
       </cards>
