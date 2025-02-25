@@ -15,7 +15,7 @@ kmeans = model["model"]
 
 # Load dataset
 # data_path = "/mnt/data/rfm_df.csv"
-df = pd.read_csv('rfm_df.csv')
+df = pd.read_csv('rfm_df1.csv')
 
 # Ensure only relevant features are used
 feature_columns = [col for col in df.columns if col not in ["Cluster", "customer_unique_id"]]
