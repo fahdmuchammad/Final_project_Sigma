@@ -8,7 +8,7 @@ from sklearn.decomposition import PCA
 # Load the trained model
 @st.cache_resource
 def load_model():
-    return joblib.load('model2.pkl')
+    return joblib.load('model3.pkl')
 
 pipeline = load_model()
 scaler = pipeline.named_steps['scaler']
