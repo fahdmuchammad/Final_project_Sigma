@@ -2,48 +2,21 @@ import streamlit as st
 import joblib
 import pandas as pd
 import numpy as np
-import re
+import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 
+# Load the trained model
 @st.cache_resource
 def load_model():
-    return joblib.load('model1.pkl')
+    return joblib.load('model2.pkl')
 
 pipeline = load_model()
+scaler = pipeline.named_steps['scaler']
+model = pipeline.named_steps['model']
 
-def determine_feature_count(pipeline):
-    # Try common attributes first
-    try:
-        if hasattr(pipeline, 'n_features_in_'):
-            return pipeline.n_features_in_
-        if 'scaler' in pipeline.named_steps:
-            return pipeline.named_steps['scaler'].scale_.shape[0]
-        return pipeline.named_steps['model'].cluster_centers_.shape[1]
-    except AttributeError:
-        pass
+# Get number of features from the scaler
+n_features = scaler.n_features_in_
 
-    # Brute-force dimension detection
-    for n in range(1, 100):
-        try:
-            dummy_data = np.zeros((1, n))
-            pipeline.predict(dummy_data)
-            return n
-        except (ValueError, TypeError) as e:
-            error_msg = str(e)
-            if "feature" in error_msg and "expected" in error_msg:
-                match = re.search(r'expected (\d+) features', error_msg)
-                if match:
-                    return int(match.group(1))
-    
-    # Final fallback
-    st.error("""Could not automatically determine feature count. 
-             Please enter manually:""")
-    return st.number_input("Number of features in model", 
-                          min_value=1, value=4, step=1)
-
-n_features = determine_feature_count(pipeline)
-
-# Rest of your original tab code remains the same...
 # Create tabs
 tab1, tab2 = st.tabs(["Model Performance", "Model Prediction"])
 
@@ -54,12 +27,25 @@ with tab1:
     # Display basic model information
     col1, col2 = st.columns(2)
     with col1:
-        try:
-            st.metric("Number of Clusters", model.n_clusters)
-        except:
-            st.warning("Could not retrieve cluster count")
+        st.metric("Number of Clusters", model.n_clusters)
+    with col2:
+        st.metric("Inertia", f"{model.inertia_:.2f}")
     
-    # Visualization section remains similar but with error handling...
+    # Visualization of cluster centers
+    st.subheader("Cluster Centers Visualization")
+    
+    # Reduce dimensionality for visualization
+    pca = PCA(n_components=2)
+    cluster_centers_2d = pca.fit_transform(model.cluster_centers_)
+    
+    fig, ax = plt.subplots()
+    scatter = ax.scatter(cluster_centers_2d[:, 0], cluster_centers_2d[:, 1], 
+                        c=range(model.n_clusters), cmap='viridis', s=200)
+    ax.set_title("Cluster Centers (PCA Reduced)")
+    ax.set_xlabel("Principal Component 1")
+    ax.set_ylabel("Principal Component 2")
+    plt.colorbar(scatter, label="Cluster")
+    st.pyplot(fig)
 
 # Tab 2 - Model Prediction UI
 with tab2:
@@ -72,20 +58,19 @@ with tab2:
         st.subheader("Single Data Point Prediction")
         inputs = []
         
-        # Create input fields based on determined features
+        # Create input fields dynamically based on number of features
         cols = st.columns(3)
         for i in range(n_features):
             with cols[i % 3]:
                 inputs.append(st.number_input(f"Feature {i+1}", value=0.0))
         
         if st.button("Predict Cluster"):
-            try:
-                input_data = np.array(inputs).reshape(1, -1)
-                prediction = pipeline.predict(input_data)
-                st.success(f"Predicted Cluster: {prediction[0]}")
-            except Exception as e:
-                st.error(f"Prediction failed: {str(e)}")
-                
+            # Prepare input data
+            input_data = np.array(inputs).reshape(1, -1)
+            # Transform using pipeline
+            prediction = pipeline.predict(input_data)
+            st.success(f"Predicted Cluster: {prediction[0]}")
+            
     else:
         st.subheader("Batch Prediction from CSV")
         uploaded_file = st.file_uploader("Upload CSV file", type=["csv"])
