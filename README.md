@@ -173,7 +173,7 @@ The customer segmentation analysis enables Olist to:
 * Continue to build loyalty with New Customers and Best Customers to convert them into long-term high-value customers.
 * Retain Best Customers by offering exclusive experiences and rewards to maintain their loyalty.
 
-## Specific Recommendations for each Cluster:
+## Specific Recommendations for Each Cluster:
 
 ## Customer Segmentation Recommendations
 
