@@ -158,9 +158,9 @@ This additional step allowed for a more granular segmentation of Potential Custo
 # 7. Conclusion
 
 The customer segmentation analysis enables Olist to:
-* Lost Customers: This is the largest group, offering a significant opportunity to recover sales through re-engagement strategies.
-* Potential Customers: These customers show interest but require more engagement to drive repeat purchases and become loyal.
-* New Customers: High growth potential. These customers should be nurtured to become loyal buyers.
+* Lost Customers: This is the largest group, presenting a significant opportunity to recover sales through re-engagement strategies.
+* Potential Customers: These customers show interest but need more engagement to encourage repeat purchases and become loyal.
+* New Customers: These customers have high growth potential and should be nurtured to become loyal buyers.
 * At Risk Customers: They need immediate attention to prevent churn and avoid becoming lost.
 * Best Customers: These highly valuable customers should be retained through personalized experiences and VIP offers.
 
