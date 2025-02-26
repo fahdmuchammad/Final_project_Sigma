@@ -137,16 +137,19 @@ This additional step allowed for a more granular segmentation of Potential Custo
 ![Treemap](https://github.com/fahdmuchammad/Final_project_Sigma/blob/main/treemap.jpeg?raw=true)
 
 
-## Customer Segmentation Table with Mean Recency, Frequency, and Monetary
+## Customer Segmentation Table
 
 
-| Cluster            | Count   | Percentage | Mean Recency | Mean Frequency | Mean Monetary |
-|--------------------|---------|------------|--------------|----------------|---------------|
-| Best Customers     | 80      | 0.11%      | 25.5 days    | 20.2           | R$79,27          |
-| At Risk Customers  | 1,135   | 1.58%      | 60.3 days    | 5.1            | R$30,97           |
-| New Customers      | 8,209   | 11.43%     | 12.2 days    | 2.3            | R$13,19           |
-| Potential Customers| 31,083 | 43.28%     | 90.4 days    | 2.7            | R$5,54           |
-| Lost Customers     | 31,302  | 43.59%     | 250.7 days   | 1.0            | R$5,53          |
+## Customer Segmentation Table
+
+| Cluster            | Count   | Percentage |
+|--------------------|---------|------------|
+| Best Customers     | 80      | 0.11%      |
+| At Risk Customers  | 1,135   | 1.58%      |
+| New Customers      | 8,209   | 11.43%     |
+| Potential Customers| 31,083  | 43.28%     |
+| Lost Customers     | 31,302  | 43.59%     |
+
 
 
 
