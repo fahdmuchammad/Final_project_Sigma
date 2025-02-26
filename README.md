@@ -191,9 +191,9 @@ Specific Recommendations for each Cluster:
 
 
 ## Data Overview
-Tableau Dashboard
+[Tableau Dashboard](https://public.tableau.com/app/profile/muchammad.fahd.ishamuddin/viz/Oliste-commerceDashboard/BusinessDashboard?publish=yes)
 
 ## Reference
-* https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
-* geojson source [url](https://github.com/codeforgermany/click_that_hood/blob/main/public/data/brazil-states.geojson)
+* [Dataset Source](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
+* [GeoJSON Source](https://github.com/codeforgermany/click_that_hood/blob/main/public/data/brazil-states.geojson)
 
