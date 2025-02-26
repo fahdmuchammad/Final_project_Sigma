@@ -1,6 +1,7 @@
 # Olist Customer Segmentation Analysis by SigmaGroup_DTI_02_FinalProject
 
 # Introduction
+
 This project, completed as the final project for our data science program at Purwadhika Digital School, focuses on customer segmentation for Olist, a Brazilian e-commerce platform. The team consists of Muchammad Fahd Ishamuddin, Saufa Rahmi Maulida, and Vina Fasya Kartamanah who collaborated to segment Olist's customers using RFM (Recency, Frequency, Monetary) analysis. The goal of this project was to provide actionable insights by analyzing customer behavior and enhancing marketing strategies to improve customer retention and satisfaction.
 
 # Dataset Context
@@ -62,6 +63,7 @@ This dataset is from Olist Store, a Brazilian e-commerce platform that connects 
 | `product_category_name_english`   | English translation of the product category name.                                                       |
 
 # Table of Contents
+
 1. Business Problem Understanding
 2. Stakeholders
 3. Data Cleaning and Understanding
@@ -72,18 +74,23 @@ This dataset is from Olist Store, a Brazilian e-commerce platform that connects 
 8. Recommendation
 
 # 1. Business Problem Understanding
+
 ## 1.1 Background
+
 Olist connects small and medium-sized businesses in Brazil to a vast network of customers. Despite its rapid growth, Olist faced challenges in understanding customer needs, allocating resources efficiently, and delivering personalized experiences. Through customer segmentation, Olist aims to improve customer engagement, enhance marketing efforts, and optimize resource allocation.
 
 ## 1.2 Problem Statement
+
 Without segmentation, marketing campaigns are generic and miss opportunities for targeting specific customer groups. The challenge is to find the optimal segmentation strategy to improve customer engagement and conversion rates.
 
 ## 1.3 Goals
+
 The goal of this project is to:
 Segment customers into distinct groups using RFM analysis.
 Provide actionable insights for marketing teams to create personalized campaigns, leading to improved customer satisfaction and retention.
 
 # 2. Data Cleaning and Understanding
+
 The purpose of data cleaning is to ensure that the dataset is accurate, consistent, and ready for analysis and modeling. The cleaning process includes:
 Handling Missing Values: Ensuring that any missing or incomplete data is appropriately addressed to avoid biases or errors in the analysis.
 Removing Duplicates: Identifying and eliminating duplicate entries to maintain the integrity of the dataset.
@@ -91,6 +98,7 @@ Converting Timestamps into Meaningful Features: Transforming timestamps (such as
 Standardizing Data Formats: Ensuring consistency in data formats for features like currency, dates, and categorical variables to make the dataset ready for analysis.
 
 # 3. Stakeholders
+
 The successful application of customer segmentation relies on collaboration among various teams within the organization. The primary stakeholders involved in this project are:
 Marketing Teams: To ensure accurate customer segmentation and targeted campaign strategies.
 Sales Teams: To leverage clean data for more effective sales efforts and personalized customer service.
@@ -98,6 +106,7 @@ Business Owners/Managers: To make informed strategic decisions based on reliable
 Data Science Team: Responsible for cleaning, transforming, and preparing data for model development and analysis.
 
 # 4. Exploratory Data Analysis (EDA)
+
 EDA is performed to understand the data distribution, including:
 Top 10 Products: Identifying the top 10 products based on sales and customer demand to focus on high-performing items.
 Product Categories and Sales: Exploring the relationship between product categories and sales to understand which categories drive the most revenue.
@@ -105,12 +114,14 @@ Heatmap of Correlation: Analyzing correlations between key features like price, 
 Order and Payment Insights: Investigating the impact of order status, payment methods, and payment installments on customer purchasing behavior.
 
 # 5. Data Preprocessing
+
 Key steps in data preprocessing:
 Normalizing numerical features using RobustScaler.
 Calculating RFM scores for each customer.
 Preparing the data for clustering by handling outliers and scaling.
 
 # 6. Modeling
+
 We use K-Means clustering to segment customers based on their RFM (Recency, Frequency, Monetary) scores. The optimal number of clusters is determined using the Elbow Method, which results in four initial segments:
 * Best Customers: High-frequency and high-value customers, who are highly engaged with frequent purchases and significant spending.
 * At-Risk Customers: Customers with moderate frequency and high spending, who have made recent purchases but require retention efforts.
@@ -122,19 +133,30 @@ Potential Customers: Customers who show some interest but require further engage
 Lost Customers: Customers who have not engaged recently and have low spending, indicating they may be at risk of churn.
 This additional step allowed for a more granular segmentation of Potential Customers, enabling more targeted marketing and retention strategies.
 
+## Cluster Treemap
+![Treemap](https://github.com/fahdmuchammad/Final_project_Sigma/blob/main/treemap.jpeg?raw=true)
 
 
-## Customer Segmentation Table
+## Customer Segmentation Table with Mean Recency, Frequency, and Monetary
 
-| Cluster            | Count   | Percentage | Recency Range  | Frequency Range | Monetary Range |
-|--------------------|---------|------------|----------------|-----------------|----------------|
-| Best Customers     | 80      | 0.11%      | 0 - 30 days    | 10 - 50         | $50 - $200     |
-| At Risk Customers  | 1,135   | 1.58%      | 30 - 90 days   | 3 - 10          | $30 - $100     |
-| New Customers      | 8,209   | 11.43%     | 0 - 30 days    | 1 - 3           | $10 - $50      |
-| Potential Customers| 25,740  | 35.85%     | 30 - 180 days  | 1 - 5           | $5 - $40       |
-| Lost Customers     | 36,645  | 51.03%     | 180+ days      | 0 - 1           | $0 - $20       |
+
+| Cluster            | Count   | Percentage | Mean Recency | Mean Frequency | Mean Monetary |
+|--------------------|---------|------------|--------------|----------------|---------------|
+| Best Customers     | 80      | 0.11%      | 25.5 days    | 20.2           | R$79,27          |
+| At Risk Customers  | 1,135   | 1.58%      | 60.3 days    | 5.1            | R$30,97           |
+| New Customers      | 8,209   | 11.43%     | 12.2 days    | 2.3            | R$13,19           |
+| Potential Customers| 31,083 | 43.28%     | 90.4 days    | 2.7            | R$5,54           |
+| Lost Customers     | 31,302  | 43.59%     | 250.7 days   | 1.0            | R$5,53          |
+
+
+
+## Cluster Visualization
+![Cluster](https://github.com/fahdmuchammad/Final_project_Sigma/blob/main/cluster.jpeg?raw=true)
+
+
 
 # 7. Conclusion
+
 The customer segmentation analysis enables Olist to:
 Lost Customers: This is the largest group, offering a significant opportunity to recover sales through re-engagement strategies.
 Potential Customers: These customers show interest but require more engagement to drive repeat purchases and become loyal.
@@ -143,6 +165,7 @@ At Risk Customers: They need immediate attention to prevent churn and avoid beco
 Best Customers: These highly valuable customers should be retained through personalized experiences and VIP offers.
 
 # 8. Recommendation
+
 General Recommendations:
 Focus on re-engaging Lost Customers and At Risk Customers through targeted campaigns and incentives to bring them back.
 Potential Customers should be nurtured through personalized campaigns and offers to increase their engagement and turn them into loyal buyers.
@@ -150,6 +173,7 @@ Continue to build loyalty with New Customers and Best Customers to convert them 
 Retain Best Customers by offering exclusive experiences and rewards to maintain their loyalty.
 
 Specific Recommendations for each Cluster:
+
 ## Customer Segmentation Recommendations
 
 | Cluster      | Recommendation                                                                                                    |
