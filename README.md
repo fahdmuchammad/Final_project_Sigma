@@ -86,8 +86,8 @@ Without segmentation, marketing campaigns are generic and miss opportunities for
 ## 1.3 Goals
 
 The goal of this project is to:
-Segment customers into distinct groups using RFM analysis.
-Provide actionable insights for marketing teams to create personalized campaigns, leading to improved customer satisfaction and retention.
+* Segment customers into distinct groups using RFM analysis.
+* Provide actionable insights for marketing teams to create personalized campaigns, leading to improved customer satisfaction and retention.
 
 # 2. Data Cleaning and Understanding
 
