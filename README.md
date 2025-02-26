@@ -137,8 +137,6 @@ This additional step allowed for a more granular segmentation of Potential Custo
 ![Treemap](https://github.com/fahdmuchammad/Final_project_Sigma/blob/main/treemap.jpeg?raw=true)
 
 
-## Customer Segmentation Table
-
 
 ## Customer Segmentation Table
 
