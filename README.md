@@ -192,7 +192,7 @@ The customer segmentation analysis enables Olist to:
 
 
 ## Data Overview
-[Tableau Dashboard](https://public.tableau.com/app/profile/muchammad.fahd.ishamuddin/viz/Oliste-commerceDashboard/BusinessDashboard?publish=yes)
+[Tableau Dashboard](https://public.tableau.com/app/profile/muchammad.fahd.ishamuddin/viz/Oliste-commerceDashboard/Story1?publish=yes)
 
 ## Reference
 * [Dataset Source](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
