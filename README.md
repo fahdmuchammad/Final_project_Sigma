@@ -92,33 +92,33 @@ The goal of this project is to:
 # 2. Data Cleaning and Understanding
 
 The purpose of data cleaning is to ensure that the dataset is accurate, consistent, and ready for analysis and modeling. The cleaning process includes:
-Handling Missing Values: Ensuring that any missing or incomplete data is appropriately addressed to avoid biases or errors in the analysis.
-Removing Duplicates: Identifying and eliminating duplicate entries to maintain the integrity of the dataset.
-Converting Timestamps into Meaningful Features: Transforming timestamps (such as order purchase date and delivery dates) into features that can be easily analyzed, like calculating recency or time between key events.
-Standardizing Data Formats: Ensuring consistency in data formats for features like currency, dates, and categorical variables to make the dataset ready for analysis.
+* Handling Missing Values: Ensuring that any missing or incomplete data is appropriately addressed to avoid biases or errors in the analysis.
+* Removing Duplicates: Identifying and eliminating duplicate entries to maintain the integrity of the dataset.
+* Converting Timestamps into Meaningful Features: Transforming timestamps (such as order purchase date and delivery dates) into features that can be easily analyzed, like calculating recency or time between key events.
+* Standardizing Data Formats: Ensuring consistency in data formats for features like currency, dates, and categorical variables to make the dataset ready for analysis.
 
 # 3. Stakeholders
 
 The successful application of customer segmentation relies on collaboration among various teams within the organization. The primary stakeholders involved in this project are:
-Marketing Teams: To ensure accurate customer segmentation and targeted campaign strategies.
-Sales Teams: To leverage clean data for more effective sales efforts and personalized customer service.
-Business Owners/Managers: To make informed strategic decisions based on reliable customer insights.
-Data Science Team: Responsible for cleaning, transforming, and preparing data for model development and analysis.
+* Marketing Teams: To ensure accurate customer segmentation and targeted campaign strategies.
+* Sales Teams: To leverage clean data for more effective sales efforts and personalized customer service.
+* Business Owners/Managers: To make informed strategic decisions based on reliable customer insights.
+* Data Science Team: Responsible for cleaning, transforming, and preparing data for model development and analysis.
 
 # 4. Exploratory Data Analysis (EDA)
 
 EDA is performed to understand the data distribution, including:
-Top 10 Products: Identifying the top 10 products based on sales and customer demand to focus on high-performing items.
-Product Categories and Sales: Exploring the relationship between product categories and sales to understand which categories drive the most revenue.
-Heatmap of Correlation: Analyzing correlations between key features like price, freight value, and payment methods to uncover underlying relationships.
-Order and Payment Insights: Investigating the impact of order status, payment methods, and payment installments on customer purchasing behavior.
+* Top 10 Products: Identifying the top 10 products based on sales and customer demand to focus on high-performing items.
+* Product Categories and Sales: Exploring the relationship between product categories and sales to understand which categories drive the most revenue.
+* Heatmap of Correlation: Analyzing correlations between key features like price, freight value, and payment methods to uncover underlying relationships.
+* Order and Payment Insights: Investigating the impact of order status, payment methods, and payment installments on customer purchasing behavior.
 
 # 5. Data Preprocessing
 
 Key steps in data preprocessing:
-Normalizing numerical features using RobustScaler.
-Calculating RFM scores for each customer.
-Preparing the data for clustering by handling outliers and scaling.
+* Normalizing numerical features using RobustScaler.
+* Calculating RFM scores for each customer.
+* Preparing the data for clustering by handling outliers and scaling.
 
 # 6. Modeling
 
@@ -129,8 +129,8 @@ We use K-Means clustering to segment customers based on their RFM (Recency, Freq
 * Potential Customers: Low-frequency and low-spending customers, who need more engagement to become frequent buyers.
 
 Since the Potential Customers segment was notably large compared to the others, we further refined the model by reapplying K-Means clustering with 2 clusters, dividing Potential Customers into two distinct groups:
-Potential Customers: Customers who show some interest but require further engagement to increase their frequency and spending.
-Lost Customers: Customers who have not engaged recently and have low spending, indicating they may be at risk of churn.
+* Potential Customers: Customers who show some interest but require further engagement to increase their frequency and spending.
+* Lost Customers: Customers who have not engaged recently and have low spending, indicating they may be at risk of churn.
 This additional step allowed for a more granular segmentation of Potential Customers, enabling more targeted marketing and retention strategies.
 
 ## Cluster Treemap
@@ -158,21 +158,21 @@ This additional step allowed for a more granular segmentation of Potential Custo
 # 7. Conclusion
 
 The customer segmentation analysis enables Olist to:
-Lost Customers: This is the largest group, offering a significant opportunity to recover sales through re-engagement strategies.
-Potential Customers: These customers show interest but require more engagement to drive repeat purchases and become loyal.
-New Customers: High growth potential. These customers should be nurtured to become loyal buyers.
-At Risk Customers: They need immediate attention to prevent churn and avoid becoming lost.
-Best Customers: These highly valuable customers should be retained through personalized experiences and VIP offers.
+* Lost Customers: This is the largest group, offering a significant opportunity to recover sales through re-engagement strategies.
+* Potential Customers: These customers show interest but require more engagement to drive repeat purchases and become loyal.
+* New Customers: High growth potential. These customers should be nurtured to become loyal buyers.
+* At Risk Customers: They need immediate attention to prevent churn and avoid becoming lost.
+* Best Customers: These highly valuable customers should be retained through personalized experiences and VIP offers.
 
 # 8. Recommendation
 
-General Recommendations:
-Focus on re-engaging Lost Customers and At Risk Customers through targeted campaigns and incentives to bring them back.
-Potential Customers should be nurtured through personalized campaigns and offers to increase their engagement and turn them into loyal buyers.
-Continue to build loyalty with New Customers and Best Customers to convert them into long-term high-value customers.
-Retain Best Customers by offering exclusive experiences and rewards to maintain their loyalty.
+## General Recommendations:
+* Focus on re-engaging Lost Customers and At Risk Customers through targeted campaigns and incentives to bring them back.
+* Potential Customers should be nurtured through personalized campaigns and offers to increase their engagement and turn them into loyal buyers.
+* Continue to build loyalty with New Customers and Best Customers to convert them into long-term high-value customers.
+* Retain Best Customers by offering exclusive experiences and rewards to maintain their loyalty.
 
-Specific Recommendations for each Cluster:
+## Specific Recommendations for each Cluster:
 
 ## Customer Segmentation Recommendations
 
