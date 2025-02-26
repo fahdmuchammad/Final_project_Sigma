@@ -1,4 +1,4 @@
-# Olist Customer Segmentation Analysis by SigmaGroup_DTI_02
+![image](https://github.com/user-attachments/assets/306d080f-07fd-4c57-ba07-46fd959de640)# Olist Customer Segmentation Analysis by SigmaGroup_DTI_02
 
 # Introduction
 
@@ -190,11 +190,20 @@ The customer segmentation analysis enables Olist to:
 | **Best Customers**     |  Retain these high-value customers with exclusive offers, VIP rewards, and early access to new products.         |
 |                       |  Show appreciation with personalized experiences to deepen their loyalty.                                        |
 
+# Tableau Dashboard Preview
+![Preview 1](https://github.com/fahdmuchammad/Final_project_Sigma/blob/main/tableau2.png?raw=true)
+![Preview 2](https://github.com/fahdmuchammad/Final_project_Sigma/blob/main/tableau3.png?raw=true)
+![Preview 3](https://github.com/fahdmuchammad/Final_project_Sigma/blob/main/tableau4.png?raw=true)
+![Preview 4](https://github.com/fahdmuchammad/Final_project_Sigma/blob/main/tableau5.png?raw=true)
+![Preview 5](https://github.com/fahdmuchammad/Final_project_Sigma/blob/main/tableau6.png?raw=true)
+![Preview 6](https://github.com/fahdmuchammad/Final_project_Sigma/blob/main/tableau7.png?raw=true)
+  
+# Streamlit Preview
+![Preview](https://github.com/fahdmuchammad/Final_project_Sigma/blob/main/streamlit3.png?raw=true)
 
 ## Data Overview
 * [Tableau Dashboard](https://public.tableau.com/app/profile/muchammad.fahd.ishamuddin/viz/Oliste-commerceDashboard/Story1?publish=yes)
 * [Streamlit](https://sigmadtiolist.streamlit.app/)
-
 ## Reference
 * [Dataset Source](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
 * [GeoJSON Source](https://github.com/codeforgermany/click_that_hood/blob/main/public/data/brazil-states.geojson)
