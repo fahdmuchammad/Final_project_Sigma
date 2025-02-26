@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/306d080f-07fd-4c57-ba07-46fd959de640)# Olist Customer Segmentation Analysis by SigmaGroup_DTI_02
+# Olist Customer Segmentation Analysis by SigmaGroup_DTI_02
 
 # Introduction
 
